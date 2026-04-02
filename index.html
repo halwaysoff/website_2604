@@ -68,13 +68,58 @@
         </p>
     </section>
 
-    <section id="gallery">
+  <section id="gallery">
         <h2>갤러리 (Gallery)</h2>
         <div class="gallery">
-            <img src="pic1" alt="사진1">
-            <img src="pic2" alt="사진2">
+            <div class="gallery-item">
+                <img src="pic1.jpg" alt="사진1">
+                <p class="caption">둉노우 중독</p>
+            </div>
+
+            <div class="gallery-item">
+                <img src="pic2.jpg" alt="사진2">
+                <p class="caption hashtag">#mood #퇴근내놔 #주4일제실시하라</p>
+            </div>
         </div>
     </section>
+
+    <style>
+        /* 갤러리 레이아웃 수정 */
+        .gallery { 
+            display: flex; 
+            justify-content: space-around; 
+            align-items: flex-start; 
+            flex-wrap: wrap; 
+            gap: 20px; 
+        }
+
+        .gallery-item { 
+            width: 45%; 
+            text-align: center; /* 텍스트 가운데 정렬 */
+        }
+
+        .gallery-item img { 
+            width: 100%; 
+            border-radius: 10px; 
+            border: 1px solid #ddd; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* 사진 밑 설명 스타일 */
+        .caption {
+            margin-top: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* 해시태그 스타일 (오른쪽 전용) */
+        .hashtag {
+            color: #007bff; /* 파란색 태그 느낌 */
+            font-size: 14px;
+            word-break: keep-all; /* 단어 중간에 줄바꿈 방지 */
+        }
+    </style>
 
     <script>
         function showSection(sectionId) {
