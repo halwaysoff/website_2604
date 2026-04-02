@@ -2,46 +2,88 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>묵시 메롱</title>
+    <title>퇴근 내놔</title>
     <style>
-        body { font-family: sans-serif; line-height: 1.6; margin: 0; padding: 0; }
-        nav { background: #333; color: #fff; padding: 1rem; text-align: center; }
-        nav a { color: #fff; margin: 0 15px; text-decoration: none; }
-        section { padding: 20px; max-width: 800px; margin: auto; }
-        .profile-img { width: 200px; border-radius: 50%; } /* 프로필 사진 동그랗게 */
-        .gallery img { width: 30%; margin: 1%; border: 1px solid #ddd; } /* 갤러리 정렬 */
+        /* 기본 디자인 */
+        body { font-family: sans-serif; line-height: 1.6; margin: 0; padding: 0; background-color: #f4f4f4; }
+        nav { background: #333; color: #fff; padding: 1rem; text-align: center; position: sticky; top: 0; }
+        
+        /* 버튼 스타일 */
+        .nav-btn { color: #fff; margin: 0 15px; text-decoration: none; background: none; border: none; font-size: 18px; cursor: pointer; }
+        .nav-btn:hover { color: #ffeb3b; }
+
+        /* 섹션 기본값: 모두 숨김 처리 */
+        section { 
+            display: none; 
+            padding: 40px; 
+            max-width: 800px; 
+            margin: 50px auto; 
+            background: white; 
+            border-radius: 10px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+        }
+
+        /* 현재 활성화된 섹션만 보이게 함 */
+        section.active { display: block; animation: fadeIn 0.5s; }
+
+        /* 프로필 영역 디자인 */
+        .profile-area { display: flex; align-items: center; gap: 20px; margin-bottom: 20px; }
+        .profile-img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; background: #eee; }
+        .my-laugh-btn { font-family: "Gungsuh", "궁서", serif; font-size: 24px; font-weight: bold; }
+
+        /* 갤러리 디자인 */
+        .gallery img { width: 30%; margin: 1%; border-radius: 5px; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
 <body>
 
-<nav>
-    <a href="#home">홈</a>
-    <a href="#profile">프로필</a>
-    <a href="#gallery">갤러리</a>
-</nav>
+    <nav>
+        <button class="nav-btn" onclick="showSection('home')">홈</button>
+        <button class="nav-btn" onclick="showSection('profile')">프로필</button>
+        <button class="nav-btn" onclick="showSection('gallery')">갤러리</button>
+    </nav>
 
-<section id="home">
-     <h1>아룡하세요</h1>
-        <p>GitHub로 처음 만들어봤다네요</p>
+    <section id="home" class="active">
+        <h1>아룡하세요</h1>
+        <p>GitHub로 처음 만들어봤다네요.</p>
     </section>
-    
-<section id="profile">
-    <h2>소개 (Profile)</h2>
-    <img src="my-photo.jpg" alt="내 웃음버튼" class="profile-img">
-    <p>할 일이 없어 심심한 노비임<br>
-    대충 이력: <br>
-    핑까 전공 석사임 <br>
-    어쩌다 미친사회혁신센타에 있음
-       </p>
-</section>
 
-<section id="gallery">
-    <h2>갤러리 (Gallery)</h2>
-        <div class="gallery">
-            <img src="pic1" alt="둉노우중독">
-            <img src="pic2" alt="#mood">
+    <section id="profile">
+        <h2>소개 (Profile)</h2>
+        <div class="profile-area">
+            <img src="my-photo" alt="웃음버튼" class="profile-img">
+            <span class="my-laugh-btn">내 웃음버튼</span>
         </div>
-</section>
+        <p>
+            이름: 조혜원. 할 일이 없어 심심한 노비임<br>
+            대충 이력:<br>
+            교육학 석사임<br>
+            핑까 전공<br>
+            어쩌다 미친사회혁신센타에 있음
+        </p>
+    </section>
+
+    <section id="gallery">
+        <h2>갤러리 (Gallery)</h2>
+        <div class="gallery">
+            <img src="pic1" alt="사진1">
+            <img src="pic2" alt="사진2">
+        </div>
+    </section>
+
+    <script>
+        function showSection(sectionId) {
+            // 1. 모든 섹션에서 'active' 클래스를 제거 (다 숨김)
+            const sections = document.querySelectorAll('section');
+            sections.forEach(sec => sec.classList.remove('active'));
+
+            // 2. 클릭한 섹션에만 'active' 클래스 추가 (그것만 보여줌)
+            const target = document.getElementById(sectionId);
+            target.classList.add('active');
+        }
+    </script>
 
 </body>
 </html>
