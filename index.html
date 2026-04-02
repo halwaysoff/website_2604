@@ -68,9 +68,10 @@
         </p>
     </section>
 
-  <section id="gallery">
+ <section id="gallery">
         <h2>갤러리 (Gallery)</h2>
         <div class="gallery">
+            
             <div class="gallery-item">
                 <img src="pic1" alt="사진1">
                 <p class="caption">둉노우 중독</p>
@@ -80,11 +81,11 @@
                 <img src="pic2" alt="사진2">
                 <p class="caption hashtag">#mood #퇴근내놔 #주4일제실시하라</p>
             </div>
+
         </div>
     </section>
 
     <style>
-        /* 갤러리 레이아웃 수정 */
         .gallery { 
             display: flex; 
             justify-content: space-around; 
@@ -95,17 +96,16 @@
 
         .gallery-item { 
             width: 45%; 
-            text-align: center; /* 텍스트 가운데 정렬 */
+            text-align: center; 
         }
 
         .gallery-item img { 
             width: 100%; 
             border-radius: 10px; 
-            border: 1px solid #ddd; 
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border: 1px solid #ddd;
+            background: #eee; /* 사진 로딩 전 보일 배경색 */
         }
 
-        /* 사진 밑 설명 스타일 */
         .caption {
             margin-top: 10px;
             font-size: 16px;
@@ -113,11 +113,12 @@
             color: #333;
         }
 
-        /* 해시태그 스타일 (오른쪽 전용) */
+        /* 오른쪽 해시태그 스타일 */
         .hashtag {
-            color: #007bff; /* 파란색 태그 느낌 */
+            color: #007bff; 
             font-size: 14px;
-            word-break: keep-all; /* 단어 중간에 줄바꿈 방지 */
+            word-break: keep-all;
+            line-height: 1.4;
         }
     </style>
 
